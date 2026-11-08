@@ -36,7 +36,7 @@
 .rt-hero::after{content:"";position:absolute;width:600px;height:600px;left:-260px;bottom:-380px;background:radial-gradient(circle,rgba(43,176,184,.22) 0%,rgba(43,176,184,0) 65%)}
 .rt-hero .rt-wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
 .rt-brand{display:inline-flex;align-items:center;gap:12px;margin-bottom:26px}
-.rt-brand img{width:58px;height:58px;border-radius:16px;object-fit:cover;object-position:50% 55%;box-shadow:0 0 0 2px rgba(255,255,255,.12)}
+.rt-brand img{width:64px;height:64px;border-radius:50%;object-fit:contain;box-shadow:0 0 0 3px rgba(255,255,255,.14),0 10px 24px -8px rgba(224,38,44,.7)}
 .rt-brand b{font-family:var(--h);font-size:20px;letter-spacing:.5px}
 .rt-brand small{display:block;color:#bfb1b1;font-size:12px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;margin-top:2px}
 .rt-hero h1{font-family:var(--h);font-weight:800;font-size:clamp(32px,4.6vw,58px);line-height:1.04;letter-spacing:-.5px}
@@ -198,7 +198,7 @@
 
   <section class="rt-hero"><div class="rt-wrap">
     <div>
-      <div class="rt-brand"><img id="rt-logo" alt="Рис и Тесто"><div><b>РИС и ТЕСТО</b><small>роллы · пицца · закуски</small></div></div>
+      <div class="rt-brand"><img id="rt-logo" alt="Рис и Тесто"><div><b>РИС и ТЕСТО</b><small>роллы · пицца · бургеры</small></div></div>
       <h1>Роллы, пицца <span>и</span> <em>бургеры</em></h1>
       <p class="rt-lead">Роллы, пицца, бургеры с доставкой по Джалилю. Бесплатно от 1000 ₽.</p>
       <div class="rt-ctas">
@@ -408,7 +408,7 @@ var esc = function(s){return String(s).replace(/[&<>"]/g,function(c){return {'&'
 var phoneSvg = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>';
 
 /* шапка: логотип, фото коллажа, статус «открыто/закрыто» по московскому времени */
-$('#rt-logo').src = IMG+'logo.webp';
+$('#rt-logo').src = IMG+'logo-round.webp';
 $$('[data-src]').forEach(function(im){ im.src = IMG+im.getAttribute('data-src'); });
 var now = new Date(), h = (now.getUTCHours()+3)%24, open = h>=OPEN && h<CLOSE, st = $('#rt-status');
 st.classList.toggle('closed',!open);
