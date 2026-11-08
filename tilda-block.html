@@ -2,14 +2,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
-#rt-app{--red:#e0262c;--red-d:#b81b20;--ink:#1b1213;--night:#150d0e;--mute:#86797a;--line:#efe6dc;--cream:#fbf5ee;--lime:#e4ef8e;--teal:#2bb0b8;
+#rt-app{--red:#e0262c;--red-d:#b81b20;--ink:#1b1213;--night:#150d0e;--mute:#86797a;--line:#efe6dc;--cream:#fbf5ee;--lime:#e4ef8e;--teal:#2bb0b8;--max:#5b3df5;--max-d:#4a2fd6;
   --h:Unbounded,Manrope,system-ui,sans-serif;
   font-family:Manrope,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased;line-height:1.4;overflow-x:hidden}
 :where(#rt-app) *{box-sizing:border-box}
 :where(#rt-app) button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit;padding:0}
 :where(#rt-app) a{color:inherit;text-decoration:none}
 :where(#rt-app) h1,:where(#rt-app) h2,:where(#rt-app) h3{margin:0}
+#rt-app :focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:10px}
 .rt-wrap{max-width:1240px;margin:0 auto;padding:0 16px}
+.rt-ico-svg{width:20px;height:20px;flex:none}
 
 /* верхняя полоса */
 .rt-strip{background:var(--night);color:#d9cfcf;font-size:13px;border-bottom:1px solid rgba(255,255,255,.06)}
@@ -21,35 +23,42 @@
 .rt-strip .rt-sp{flex:1}
 
 /* герой */
-.rt-hero{position:relative;background:var(--night);color:#fff;overflow:hidden;padding:56px 0 72px}
-.rt-hero::before{content:"";position:absolute;width:900px;height:900px;right:-260px;top:-300px;background:radial-gradient(circle,rgba(224,38,44,.55) 0%,rgba(224,38,44,0) 62%)}
-.rt-hero::after{content:"";position:absolute;width:600px;height:600px;left:-260px;bottom:-380px;background:radial-gradient(circle,rgba(43,176,184,.22) 0%,rgba(43,176,184,0) 65%)}
-.rt-hero .rt-wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
-.rt-brand{display:inline-flex;align-items:center;gap:12px;margin-bottom:26px}
-.rt-brand img{width:64px;height:64px;border-radius:50%;object-fit:contain;box-shadow:0 0 0 3px rgba(255,255,255,.14),0 10px 24px -8px rgba(224,38,44,.7)}
-.rt-brand b{font-family:var(--h);font-size:20px;letter-spacing:.5px}
-.rt-brand small{display:block;color:#bfb1b1;font-size:12px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;margin-top:2px}
-.rt-hero h1{font-family:var(--h);font-weight:800;font-size:clamp(32px,4.6vw,58px);line-height:1.04;letter-spacing:-.5px}
-.rt-hero h1 em{font-style:normal;color:var(--lime)}
-.rt-hero h1 span{color:var(--red);-webkit-text-stroke:0}
-.rt-lead{font-size:17px;color:#d6caca;max-width:470px;margin:20px 0 28px}
+.rt-hero{position:relative;background:var(--night);color:#fff;overflow:hidden;padding:48px 0 64px}
+.rt-hero::before{content:"";position:absolute;width:900px;height:900px;right:-200px;top:-280px;background:radial-gradient(circle,rgba(224,38,44,.5) 0%,rgba(224,38,44,0) 62%)}
+.rt-hero .rt-wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.05fr;gap:32px;align-items:center}
+.rt-brand{display:inline-flex;align-items:center;gap:12px;margin-bottom:28px}
+.rt-brand img{width:60px;height:60px;border-radius:50%;object-fit:contain;box-shadow:0 0 0 3px rgba(255,255,255,.14),0 10px 24px -8px rgba(224,38,44,.7)}
+.rt-brand b{font-family:var(--h);font-size:19px;letter-spacing:.3px}
+.rt-brand small{display:block;color:#bfb1b1;font-size:13px;font-weight:600;margin-top:2px}
+.rt-hero h1{font-family:var(--h);font-weight:800;font-size:clamp(34px,5vw,64px);line-height:1;letter-spacing:-1px;max-width:11ch}
+.rt-lead{font-size:17px;color:#d6caca;max-width:440px;margin:22px 0 28px}
 .rt-ctas{display:flex;gap:12px;flex-wrap:wrap}
 .rt-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:16px;padding:16px 24px;font-weight:800;font-size:16px;transition:transform .15s,background .15s,box-shadow .15s}
 .rt-btn:hover{transform:translateY(-2px)}
+.rt-btn:active{transform:translateY(0) scale(.98)}
 .rt-btn svg{width:20px;height:20px;flex:none}
 .rt-btn.red{background:var(--red);color:#fff!important;box-shadow:0 12px 30px -8px rgba(224,38,44,.65)}
 .rt-btn.red:hover{background:var(--red-d)}
 .rt-btn.ghost{background:rgba(255,255,255,.08);color:#fff!important;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.22)}
 .rt-btn.ghost:hover{background:rgba(255,255,255,.14)}
-.rt-btn.wa{background:#1fae54;color:#fff!important}
-.rt-btn.wa:hover{background:#178f44}
-.rt-stats{display:flex;gap:30px;margin-top:36px;flex-wrap:wrap}
-.rt-stats div{font-size:13px;color:#bfb1b1;font-weight:600}
-.rt-stats b{display:block;font-family:var(--h);color:#fff;font-size:24px;font-weight:700;margin-bottom:2px}
+.rt-btn.max{background:var(--max);color:#fff!important}
+.rt-btn.max:hover{background:var(--max-d)}
+.rt-btn.line{background:#fff;color:var(--ink)!important;box-shadow:inset 0 0 0 1.5px var(--line)}
+.rt-perks{display:flex;flex-direction:column;gap:10px;margin-top:30px;font-size:14px;color:#d6caca;font-weight:600}
+.rt-perks > span{display:flex;align-items:center;gap:10px}
+.rt-perks b{color:#fff}
+.rt-perks i{font-style:normal;width:30px;height:30px;border-radius:10px;background:rgba(255,255,255,.08);display:grid;place-items:center;font-size:15px;flex:none}
+
+.rt-hero h1 em{font-style:normal;color:var(--lime)}
+.rt-hero h1 span{color:var(--red)}
+
+/* коллаж из карточек в герое */
 .rt-collage{position:relative;height:440px}
 .rt-ph{position:absolute;background:#fff;border-radius:28px;padding:14px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);transition:transform .4s}
 .rt-ph img{display:block;width:100%;height:100%;object-fit:contain}
+.rt-ph.cover{padding:0;overflow:visible}.rt-ph.cover img{object-fit:cover;border-radius:28px}
 .rt-ph span{position:absolute;right:14px;top:-14px;white-space:nowrap;box-shadow:0 8px 18px -8px rgba(0,0,0,.5);background:var(--lime);color:var(--ink);font-weight:800;font-size:13px;padding:7px 12px;border-radius:12px;font-family:var(--h)}
+.rt-ph[data-open]{cursor:pointer}
 .rt-ph.a{width:62%;height:62%;left:4%;top:2%;transform:rotate(-6deg)}
 .rt-ph.b{width:52%;height:50%;right:0;top:22%;transform:rotate(5deg);z-index:2}
 .rt-ph.c{width:46%;height:44%;left:18%;bottom:0;transform:rotate(-2deg);z-index:3}
@@ -63,8 +72,15 @@
 .rt-run span{margin:0 18px;color:var(--lime)}
 @keyframes rt-run{to{transform:translateX(-50%)}}
 
+/* акция самовывоза */
+.rt-promo{margin-top:36px;background:var(--lime);border-radius:28px;padding:26px 30px;display:flex;align-items:center;gap:24px;position:relative;overflow:hidden}
+.rt-promo-n{font-family:var(--h);font-weight:800;font-size:clamp(44px,6vw,76px);line-height:.9;letter-spacing:-2px;color:var(--ink);flex:none}
+.rt-promo h2{font-family:var(--h);font-weight:700;font-size:clamp(18px,2vw,24px);line-height:1.15;margin-bottom:6px}
+.rt-promo p{margin:0;color:#3f3a2a;font-size:15px;max-width:620px}
+.rt-promo .rt-btn{margin-left:auto;flex:none}
+
 /* категории */
-.rt-nav{position:sticky;top:0;z-index:50;background:rgba(251,245,238,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);margin-top:28px;border-bottom:1px solid transparent;transition:border-color .2s}
+.rt-nav{position:sticky;top:0;z-index:50;background:rgba(251,245,238,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);margin-top:20px;border-bottom:1px solid transparent;transition:border-color .2s}
 .rt-nav.stuck{border-color:var(--line)}
 .rt-nav .rt-wrap{display:flex;gap:8px;overflow-x:auto;padding:12px 16px;scrollbar-width:none}
 .rt-nav .rt-wrap::-webkit-scrollbar{display:none}
@@ -84,21 +100,38 @@
 
 /* карточки */
 .rt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.rt-card{background:#fff;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;position:relative;transition:transform .25s,box-shadow .25s;box-shadow:0 1px 0 var(--line)}
-.rt-card:hover{transform:translateY(-4px);box-shadow:0 22px 40px -22px rgba(27,18,19,.35)}
+.rt-card{background:#fff;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;position:relative;transition:box-shadow .25s;box-shadow:0 1px 0 var(--line)}
+.rt-card:hover{box-shadow:0 22px 40px -24px rgba(27,18,19,.35)}
 .rt-pic{aspect-ratio:4/3;background:#fff;display:grid;place-items:center;overflow:hidden;padding:10px;position:relative}
 .rt-pic img{width:100%;height:100%;object-fit:contain;transition:transform .4s}
 .rt-pic.cover{padding:0}.rt-pic.cover img{object-fit:cover}
-.rt-card:hover .rt-pic img{transform:scale(1.06)}
+.rt-card:hover .rt-pic img{transform:scale(1.05)}
 .rt-tag{position:absolute;left:12px;top:12px;background:var(--ink);color:#fff;font-size:12px;font-weight:800;padding:5px 10px;border-radius:10px;z-index:1}
+.rt-tag.new{background:var(--lime);color:var(--ink)}
 .rt-body{padding:2px 18px 18px;display:flex;flex-direction:column;flex:1}
 .rt-name{font-weight:800;font-size:16.5px;line-height:1.25;margin:6px 0 6px}
 .rt-desc{color:var(--mute);font-size:13px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.rt-foot-c{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:14px;gap:8px}
+.rt-foot-c{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:14px;gap:8px;min-height:52px}
 .rt-price{font-family:var(--h);font-weight:700;font-size:20px;letter-spacing:-.3px}
 .rt-price small{font-size:.7em}
-.rt-more{width:38px;height:38px;border-radius:12px;background:var(--cream);display:grid;place-items:center;color:var(--red);font-size:18px;font-weight:800;transition:all .2s}
-.rt-card:hover .rt-more{background:var(--red);color:#fff}
+
+/* кнопка «+» и счётчик */
+.rt-add{width:40px;height:40px;border-radius:13px;background:var(--red);color:#fff;display:grid;place-items:center;font-size:24px;font-weight:700;line-height:1;transition:background .15s,transform .15s;box-shadow:0 8px 16px -8px rgba(224,38,44,.8)}
+.rt-add:hover{background:var(--red-d)}
+.rt-add:active{transform:scale(.9)}
+.rt-qty{display:inline-flex;align-items:center;background:var(--ink);color:#fff;border-radius:13px;height:40px;animation:rt-pop .25s ease-out}
+.rt-qty button{width:36px;height:40px;font-size:20px;font-weight:700;line-height:1;display:grid;place-items:center}
+.rt-qty b{min-width:20px;text-align:center;font-size:15px}
+@keyframes rt-pop{0%{transform:scale(.8)}70%{transform:scale(1.06)}100%{transform:scale(1)}}
+
+/* бургеры — бенто-сетка */
+.rt-grid.bento .rt-card.big{grid-column:span 2;grid-row:span 2;background:var(--night);color:#fff}
+.rt-grid.bento .big .rt-pic{aspect-ratio:auto;flex:1;min-height:320px;background:#000}
+.rt-grid.bento .big .rt-body{padding:6px 24px 24px;flex:none}
+.rt-grid.bento .big .rt-name{font-family:var(--h);font-size:clamp(22px,2.4vw,30px);font-weight:800;letter-spacing:-.4px;margin:10px 0 8px}
+.rt-grid.bento .big .rt-desc{color:#cbbfbf;font-size:15px;-webkit-line-clamp:4}
+.rt-grid.bento .big .rt-price{font-size:28px}
+.rt-grid.bento .big .rt-qty{background:var(--lime);color:var(--ink)}
 
 /* как заказать + контакты */
 .rt-how{margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -111,7 +144,6 @@
 .rt-contact::before{content:"";position:absolute;width:520px;height:520px;left:-200px;top:-260px;background:radial-gradient(circle,rgba(224,38,44,.45),rgba(224,38,44,0) 65%)}
 .rt-cl{padding:40px;position:relative}
 .rt-cl h2{font-family:var(--h);font-weight:800;font-size:clamp(26px,3vw,38px);line-height:1.05;margin-bottom:24px}
-.rt-cl h2 em{font-style:normal;color:var(--lime)}
 .rt-li{display:flex;gap:14px;margin-bottom:18px;align-items:flex-start}
 .rt-li i{font-style:normal;width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.08);display:grid;place-items:center;font-size:20px;flex:none}
 .rt-li small{display:block;color:#bfb1b1;font-size:13px;font-weight:600}
@@ -121,7 +153,18 @@
 .rt-map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .rt-map:hover img{transform:scale(1.03)}
 .rt-map span{position:absolute;left:16px;bottom:16px;background:#fff;color:var(--ink);font-weight:800;font-size:14px;padding:11px 16px;border-radius:14px;box-shadow:0 8px 24px -8px rgba(0,0,0,.35)}
-.rt-foot{text-align:center;color:var(--mute);font-size:13px;padding:30px 16px 100px}
+
+/* подвал */
+.rt-ft{margin-top:56px;background:var(--night);color:#d6caca;padding:44px 0 120px;font-size:14px}
+.rt-ft .rt-wrap{display:grid;grid-template-columns:1.2fr 1fr 1.4fr;gap:32px}
+.rt-ft h3{color:#fff;font-size:15px;font-weight:800;margin-bottom:14px}
+.rt-ft .rt-brand{margin-bottom:14px}
+.rt-ft p{margin:0 0 8px}
+.rt-ft a{color:#fff;font-weight:700}
+.rt-ft-cats{display:flex;flex-wrap:wrap;gap:8px}
+.rt-ft-cats button{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.07);color:#fff;font-weight:700;font-size:13px}
+.rt-ft-cats button:hover{background:rgba(255,255,255,.14)}
+.rt-ft-legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.08);padding-top:20px;color:#8f8283;font-size:13px}
 
 /* окно блюда */
 .rt-ov{position:fixed;inset:0;background:rgba(21,13,14,.6);z-index:1000;opacity:0;pointer-events:none;transition:opacity .2s}
@@ -132,46 +175,119 @@
 .rt-pm .rt-pic{aspect-ratio:auto;min-height:340px;padding:24px;background:#fff}
 .rt-pm .rt-pic.cover{padding:0}
 .rt-pm-b{padding:34px 30px 28px;display:flex;flex-direction:column;background:var(--cream)}
-.rt-pm-b .rt-cat{color:var(--red);font-weight:800;font-size:12px;letter-spacing:.8px;text-transform:uppercase}
+.rt-pm-b .rt-cat{color:var(--red);font-weight:800;font-size:13px}
 .rt-pm-b h3{font-family:var(--h);font-size:26px;line-height:1.1;margin:8px 0 10px;font-weight:700}
 .rt-pm-b .rt-w{display:inline-block;background:#fff;border-radius:10px;padding:5px 10px;font-weight:700;font-size:13px;margin-bottom:16px;align-self:flex-start}
 .rt-pm-b p{color:#4f4243;font-size:15px;margin:0 0 22px;flex:1}
 .rt-pm-b .rt-price{font-size:30px;margin-bottom:16px}
 .rt-pm-b .rt-btn{width:100%}
+.rt-pm-b .rt-btn + .rt-btn{margin-top:10px}
 .rt-x{position:absolute;right:14px;top:14px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.9)!important;font-size:24px;line-height:1;z-index:2;box-shadow:0 2px 10px rgba(0,0,0,.1)}
 
-/* кнопка звонка на телефоне */
-.rt-call{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;display:none;gap:10px}
+/* панель корзины внизу */
+.rt-bar{position:fixed;left:50%;bottom:20px;z-index:60;transform:translate(-50%,160%);transition:transform .3s cubic-bezier(.2,.9,.3,1.2);display:flex;align-items:center;gap:16px;background:var(--night);color:#fff;border-radius:22px;padding:10px 10px 10px 18px;min-width:360px;box-shadow:0 20px 40px -14px rgba(0,0,0,.55)}
+.rt-bar.show{transform:translate(-50%,0)}
+.rt-bar-n{position:relative;width:38px;height:38px;border-radius:12px;background:rgba(255,255,255,.1);display:grid;place-items:center;flex:none}
+.rt-bar-n svg{width:20px;height:20px}
+.rt-bar-n em{position:absolute;right:-6px;top:-6px;min-width:20px;height:20px;border-radius:10px;background:var(--lime);color:var(--ink);font-style:normal;font-size:12px;font-weight:800;display:grid;place-items:center;padding:0 5px}
+.rt-bar-n.bump{animation:rt-pop .35s ease-out}
+.rt-bar-t{flex:1;line-height:1.15}
+.rt-bar-t small{display:block;color:#bfb1b1;font-size:12px;font-weight:700}
+.rt-bar-t b{font-family:var(--h);font-size:18px;font-weight:700}
+.rt-bar .rt-btn{padding:13px 18px;font-size:15px;border-radius:14px}
+
+/* корзина */
+.rt-drawer{position:fixed;top:0;right:0;bottom:0;width:460px;max-width:100%;z-index:1001;background:var(--cream);transform:translateX(105%);transition:transform .3s ease;display:flex;flex-direction:column;box-shadow:-20px 0 50px -20px rgba(0,0,0,.4)}
+.rt-drawer.show{transform:none}
+.rt-dh{display:flex;align-items:center;gap:12px;padding:20px 20px 14px}
+.rt-dh h3{font-family:var(--h);font-size:22px;font-weight:700;flex:1}
+.rt-dh .rt-x{position:static;background:#fff!important}
+.rt-db{flex:1;overflow:auto;padding:0 20px 20px}
+.rt-ci{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;background:#fff;border-radius:18px;padding:8px 10px 8px 8px;margin-bottom:8px}
+.rt-ci img{width:64px;height:52px;object-fit:contain;border-radius:10px;background:#fff}
+.rt-ci b{display:block;font-size:14px;line-height:1.2}
+.rt-ci small{color:var(--mute);font-weight:700;font-size:13px}
+.rt-ci .rt-qty{height:36px;animation:none}
+.rt-ci .rt-qty button{width:32px;height:36px}
+.rt-clear{color:var(--mute);font-weight:700;font-size:13px;text-decoration:underline;margin:2px 0 18px}
+.rt-seg{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:16px;padding:4px;gap:4px;margin-bottom:14px;box-shadow:inset 0 0 0 1px var(--line)}
+.rt-seg button{border-radius:12px;padding:11px 8px;font-weight:800;font-size:14px;line-height:1.15}
+.rt-seg button small{display:block;font-weight:700;font-size:12px;opacity:.7}
+.rt-seg button.on{background:var(--ink);color:#fff}
+.rt-seg button.on small{opacity:.85;color:var(--lime)}
+.rt-f{display:block;margin-bottom:10px}
+.rt-f span{display:block;font-size:13px;font-weight:700;color:#5a4d4e;margin-bottom:5px}
+.rt-f input,.rt-f textarea{width:100%;font:inherit;font-size:16px;padding:12px 14px;border-radius:14px;border:1.5px solid var(--line);background:#fff;color:var(--ink)}
+.rt-f textarea{min-height:64px;resize:vertical}
+.rt-f input:focus,.rt-f textarea:focus{outline:none;border-color:var(--ink)}
+.rt-f.err input{border-color:var(--red)}
+.rt-f em{display:none;font-style:normal;color:var(--red);font-size:13px;font-weight:700;margin-top:4px}
+.rt-f.err em{display:block}
+.rt-pickup{background:#fff;border-radius:14px;padding:12px 14px;font-size:14px;margin-bottom:10px}
+.rt-df{border-top:1px solid var(--line);padding:14px 20px 20px;background:var(--cream)}
+.rt-row{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px;color:#5a4d4e;font-weight:600}
+.rt-row.off{color:#1d8a46}
+.rt-row.tot{font-size:16px;color:var(--ink);font-weight:800;margin:10px 0 4px}
+.rt-row.tot b{font-family:var(--h);font-size:22px}
+.rt-hint{font-size:13px;color:var(--mute);margin:2px 0 12px}
+.rt-pay{font-size:13px;background:#fff;border-radius:12px;padding:10px 12px;margin:10px 0 12px;color:#5a4d4e}
+.rt-df .rt-btn{width:100%}
+.rt-df .rt-btn + .rt-btn{margin-top:8px}
+.rt-copy{display:block;margin:10px auto 0;color:var(--mute);font-weight:700;font-size:13px;text-decoration:underline}
+.rt-empty{text-align:center;padding:50px 10px;color:var(--mute)}
+.rt-empty b{display:block;color:var(--ink);font-size:18px;margin-bottom:6px}
+.rt-empty .rt-btn{margin-top:18px}
+
+/* уведомление */
+.rt-toast{position:fixed;left:50%;top:20px;transform:translate(-50%,-160%);z-index:1100;background:var(--ink);color:#fff;font-weight:700;font-size:14px;padding:14px 18px;border-radius:16px;max-width:calc(100% - 32px);width:max-content;box-shadow:0 14px 30px -10px rgba(0,0,0,.5);transition:transform .3s}
+.rt-toast.show{transform:translate(-50%,0)}
+
+/* кнопки связи на телефоне */
+.rt-call{position:fixed;left:16px;right:16px;bottom:16px;z-index:59;display:none;gap:10px}
 .rt-call a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:16px;padding:15px;font-weight:800;font-size:15px;color:#fff!important;box-shadow:0 12px 30px -10px rgba(0,0,0,.5)}
 .rt-call a svg{width:18px;height:18px}
-.rt-call .c{background:var(--red)}.rt-call .w{background:#1fae54;flex:0 0 56px}
+.rt-call .c{background:var(--red)}.rt-call .m{background:var(--max);flex:0 0 auto;padding:15px 18px}
 
-/* появление при прокрутке */
-.rt-rv{opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s}
-.rt-rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.rt-rv{opacity:1;transform:none;transition:none}.rt-run div{animation:none}}
+@media (prefers-reduced-motion:reduce){
+  .rt-run div{animation:none}
+  .rt-ph{transition:none}
+  .rt-qty,.rt-bar-n.bump{animation:none}
+  .rt-bar,.rt-drawer,.rt-modal,.rt-toast{transition:none}
+}
 
 @media (max-width:1100px){.rt-grid{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:900px){
-  .rt-hero{padding:36px 0 56px}.rt-hero .rt-wrap{grid-template-columns:1fr}
-  .rt-collage{height:300px;max-width:520px;width:100%;margin:0 auto}
+  .rt-hero{padding:32px 0 48px}.rt-hero .rt-wrap{grid-template-columns:1fr;gap:8px}
+  .rt-collage{height:300px;max-width:520px;width:100%;margin:24px auto 0}
   .rt-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .rt-grid.bento .rt-card.big{grid-row:auto}
+  .rt-grid.bento .big .rt-pic{min-height:240px}
   .rt-how{grid-template-columns:1fr}
   .rt-contact{grid-template-columns:1fr}.rt-cl{padding:28px 22px}
   .rt-pm{grid-template-columns:1fr}.rt-pm .rt-pic{min-height:240px}
+  .rt-promo{flex-wrap:wrap;padding:22px}
+  .rt-promo .rt-btn{margin-left:0;width:100%}
+  .rt-ft .rt-wrap{grid-template-columns:1fr}
 }
 @media (max-width:600px){
   .rt-strip .rt-hide{display:none}
   .rt-lead{font-size:15px}
-  .rt-btn{padding:15px 18px;font-size:15px;flex:1 1 100%;white-space:nowrap}
-  .rt-stats{gap:18px}.rt-stats b{font-size:19px}
+  .rt-hero .rt-ctas .rt-btn{padding:15px 18px;font-size:15px;flex:1 1 100%;white-space:nowrap}
   .rt-collage{height:250px}
+  .rt-promo{gap:4px 16px}
   .rt-sh i{width:44px;height:44px;font-size:22px;border-radius:13px}.rt-sh small{display:none}
   .rt-card{border-radius:20px}
-  .rt-body{padding:0 12px 14px}.rt-name{font-size:14px}.rt-desc{font-size:12px;-webkit-line-clamp:2}
-  .rt-price{font-size:16px}.rt-more{width:32px;height:32px;border-radius:10px;font-size:15px}
+  .rt-body{padding:0 12px 12px}.rt-name{font-size:14px}.rt-desc{font-size:12px;-webkit-line-clamp:2}
+  .rt-price{font-size:16px}
+  .rt-add{width:36px;height:36px;font-size:22px;border-radius:12px}
+  .rt-qty{height:36px;border-radius:12px}.rt-qty button{width:28px;height:36px;font-size:18px}.rt-qty b{min-width:16px;font-size:14px}
   .rt-tag{font-size:11px;padding:4px 8px;left:8px;top:8px}
+  .rt-grid.bento .big .rt-body{padding:4px 16px 16px}
+  .rt-grid.bento .big .rt-desc{font-size:13px}
   .rt-call{display:flex}
+  #rt-app.has-cart .rt-call{display:none}
+  .rt-bar{left:12px;right:12px;bottom:12px;min-width:0;transform:translateY(160%)}
+  .rt-bar.show{transform:none}
   .rt-modal{top:auto;bottom:0;left:0;right:0;transform:translateY(40px);width:100%;max-width:100%;border-radius:28px 28px 0 0;max-height:92%}
   .rt-modal.show{transform:none}
   .rt-pm-b{padding:22px 20px 26px}
@@ -188,62 +304,97 @@
 
   <section class="rt-hero"><div class="rt-wrap">
     <div>
-      <div class="rt-brand"><img id="rt-logo" alt="Рис и Тесто"><div><b>РИС и ТЕСТО</b><small>роллы · пицца · бургеры</small></div></div>
+      <div class="rt-brand"><img data-src="logo-round.webp" alt="Рис и Тесто"><div><b>РИС и ТЕСТО</b><small>Доставка еды в Джалиле</small></div></div>
       <h1>Роллы, пицца <span>и</span> <em>бургеры</em></h1>
-      <p class="rt-lead">Роллы, пицца, бургеры с доставкой по Джалилю. Бесплатно от 1000 ₽.</p>
+      <p class="rt-lead">Соберите заказ на сайте и отправьте его нам в MAX или позвоните. Оплата при получении.</p>
       <div class="rt-ctas">
-        <a class="rt-btn red" href="tel:+79874210788"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>Позвонить и заказать</a>
-        <a class="rt-btn ghost" href="#cat-sets" data-cat="sets">Смотреть меню ↓</a>
+        <a class="rt-btn red" href="#cat-sets" data-cat="sets">Собрать заказ</a>
+        <a class="rt-btn ghost" href="tel:+79874210788"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>Позвонить</a>
       </div>
-      <div class="rt-stats">
-        <div><b>110+</b>блюд в меню</div>
-        <div><b>0 ₽</b>доставка от 1000 ₽</div>
-        <div><b>10–21</b>без выходных</div>
+      <div class="rt-perks">
+        <span><i>🛵</i><span>Доставка по Джалилю <b>бесплатно от 1000 ₽</b></span></span>
+        <span><i>🏃</i><span>Заберёте сами — <b>скидка 10% на весь чек</b></span></span>
       </div>
     </div>
-    <div class="rt-collage" aria-hidden="true">
-      <div class="rt-ph a"><img data-src="p5_09.webp" alt=""><span>Сет Супер · 64 шт.</span></div>
-      <div class="rt-ph b"><img data-src="p2_00.webp" alt=""><span>Пицца 32 см</span></div>
-      <div class="rt-ph c"><img data-src="p6_07.webp" alt=""><span>Запечённые</span></div>
+    <div class="rt-collage">
+      <div class="rt-ph a" data-open="p5_09" role="button" tabindex="0" aria-label="Сет Супер, 64 шт."><img data-src="hq_p5_09.webp" alt=""><span>Сет Супер · 64 шт.</span></div>
+      <div class="rt-ph b" data-open="p2_00" role="button" tabindex="0" aria-label="Пицца Пепперони, 32 см"><img data-src="hq_p2_00.webp" alt=""><span>Пицца 32 см</span></div>
+      <div class="rt-ph c cover" data-open="b_ufo" role="button" tabindex="0" aria-label="НЛО Бургер, 250 ₽"><img data-src="b_ufo.webp" alt=""><span>НЛО Бургер</span></div>
     </div>
   </div></section>
 
   <div class="rt-run" aria-hidden="true"><div id="rt-run"></div></div>
 
-  <nav class="rt-nav" id="rt-navbar"><div class="rt-wrap" id="rt-nav"></div></nav>
+  <div class="rt-wrap">
+    <section class="rt-promo">
+      <span class="rt-promo-n">−10%</span>
+      <div>
+        <h2>Скидка 10% на весь чек за самовывоз</h2>
+        <p>Заберите заказ сами по адресу ул. Ахмадиева, 6, рядом с автовокзалом. Выберите «Самовывоз» в корзине — скидка посчитается сама.</p>
+      </div>
+      <a class="rt-btn line" href="#cat-sets" data-cat="sets">К меню</a>
+    </section>
+  </div>
+
+  <nav class="rt-nav" id="rt-navbar" aria-label="Разделы меню"><div class="rt-wrap" id="rt-nav"></div></nav>
   <main class="rt-wrap" id="rt-menu"></main>
 
   <div class="rt-wrap">
-    <section class="rt-how rt-rv">
-      <div class="rt-step"><b>1</b><span class="rt-ico">📖</span><h3>Выберите блюда</h3><p>Листайте меню — нажмите на блюдо, чтобы увидеть состав и вес.</p></div>
-      <div class="rt-step"><b>2</b><span class="rt-ico">📞</span><h3>Позвоните или напишите</h3><p>8 987 421-07-88 — звонок или WhatsApp. Примем заказ и назовём время.</p></div>
-      <div class="rt-step"><b>3</b><span class="rt-ico">🛵</span><h3>Получите заказ</h3><p>Привезём по Джалилю — бесплатно от 1000 ₽. Или заберите сами.</p></div>
+    <section class="rt-how">
+      <div class="rt-step"><b>1</b><span class="rt-ico">🛒</span><h3>Соберите корзину</h3><p>Нажимайте «+» на блюдах. Состав и вес — по нажатию на карточку.</p></div>
+      <div class="rt-step"><b>2</b><span class="rt-ico">💬</span><h3>Отправьте заказ</h3><p>В MAX одной кнопкой или по телефону 8 987 421-07-88. Подтвердим заказ и назовём время.</p></div>
+      <div class="rt-step"><b>3</b><span class="rt-ico">🛵</span><h3>Получите и оплатите</h3><p>Привезём бесплатно от 1000 ₽ или заберите сами со скидкой 10%. Оплата при получении.</p></div>
     </section>
 
-    <section class="rt-contact rt-rv" id="rt-contacts">
+    <section class="rt-contact" id="rt-contacts">
       <div class="rt-cl">
-        <h2>Ждём вас <em>каждый день</em></h2>
+        <h2>Ждём вас каждый день</h2>
         <div class="rt-li"><i>📍</i><div><small>Адрес и самовывоз</small><b>пгт. Джалиль, ул. Ахмадиева, 6</b></div></div>
         <div class="rt-li"><i>🕙</i><div><small>Режим работы</small><b>Ежедневно 10:00 – 21:00</b></div></div>
         <div class="rt-li"><i>🛵</i><div><small>Доставка по Джалилю</small><b>Бесплатно при заказе от 1000 ₽</b></div></div>
         <div class="rt-li"><i>🥢</i><div><small>К роллам</small><b>Соусы, имбирь, васаби — в комплекте</b></div></div>
         <div class="rt-ctas">
           <a class="rt-btn red" href="tel:+79874210788">8 987 421-07-88</a>
-          <a class="rt-btn wa" href="https://wa.me/79874210788" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="rt-btn max" data-max href="#" target="_blank" rel="noopener">Написать в MAX</a>
         </div>
       </div>
       <a class="rt-map" href="https://yandex.ru/maps/?text=%D0%94%D0%B6%D0%B0%D0%BB%D0%B8%D0%BB%D1%8C%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%90%D1%85%D0%BC%D0%B0%D0%B4%D0%B8%D0%B5%D0%B2%D0%B0%2C%206" target="_blank" rel="noopener"><img data-src="map.webp" alt="Схема проезда: ул. Ахмадиева, 6, рядом с автовокзалом"><span>Открыть в Яндекс Картах ↗</span></a>
     </section>
-    <div class="rt-foot">© Рис и Тесто, Джалиль · Цены указаны в рублях. Фото блюд могут отличаться от подачи.</div>
   </div>
 
+  <footer class="rt-ft"><div class="rt-wrap">
+    <div>
+      <div class="rt-brand"><img data-src="logo-round.webp" alt=""><div><b>РИС и ТЕСТО</b><small>Роллы, пицца и бургеры в Джалиле</small></div></div>
+      <p>Самовывоз — скидка 10% на весь чек.</p>
+    </div>
+    <div>
+      <h3>Связаться</h3>
+      <p><a href="tel:+79874210788">8 987 421-07-88</a></p>
+      <p><a data-max href="#" target="_blank" rel="noopener">Написать в MAX</a></p>
+      <p>ул. Ахмадиева, 6<br>Ежедневно 10:00 – 21:00</p>
+    </div>
+    <div>
+      <h3>Меню</h3>
+      <div class="rt-ft-cats" id="rt-ft-cats"></div>
+    </div>
+    <div class="rt-ft-legal">© Рис и Тесто, Джалиль. Цены указаны в рублях. Фото блюд могут отличаться от подачи. Онлайн-оплаты на сайте нет: заказ оплачивается при получении.</div>
+  </div></footer>
+
   <div class="rt-call">
-    <a class="c" href="tel:+79874210788"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>Позвонить и заказать</a>
-    <a class="w" href="https://wa.me/79874210788" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-3.3-.8-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.1.1.6-.1 1.2z"/></svg></a>
+    <a class="c" href="tel:+79874210788"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>Позвонить</a>
+    <a class="m" data-max href="#" target="_blank" rel="noopener">MAX</a>
+  </div>
+
+  <div class="rt-bar" id="rt-bar">
+    <span class="rt-bar-n" id="rt-bar-n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg><em id="rt-bar-c">0</em></span>
+    <span class="rt-bar-t"><small>Ваш заказ</small><b id="rt-bar-s">0 ₽</b></span>
+    <button class="rt-btn red" data-cart>Оформить</button>
   </div>
 
   <div class="rt-ov" id="rt-ov"></div>
   <div class="rt-modal" id="rt-prod" role="dialog" aria-modal="true"></div>
+  <aside class="rt-drawer" id="rt-drawer" role="dialog" aria-modal="true" aria-label="Корзина"></aside>
+  <div class="rt-toast" id="rt-toast" role="status" aria-live="polite"></div>
 </div>
 
 <script>
@@ -251,14 +402,23 @@
 /* ====== НАСТРОЙКИ ====== */
 var IMG = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) ? 'img/'
         : 'https://cdn.jsdelivr.net/gh/barisovna/ris-i-testo@main/img/'; // фото лежат в github.com/barisovna/ris-i-testo
-var OPEN = 10, CLOSE = 21;          // часы работы (по Москве)
-var ICONS = {'sets':'🍱','mini-sets':'🥢','baked':'🔥','tempura':'🍤','cold':'🍣','mini-rolls':'🍙','pizza':'🍕','snacks':'🍟','sauces':'🥣'};
 
-/* ====== МЕНЮ: [фото, название, вес/кол-во, состав, цена] ====== */
+// Ссылка на ваш чат в MAX. Возьмите её в приложении MAX (профиль → поделиться ссылкой) и вставьте между кавычками,
+// например: var MAX_URL = 'https://max.ru/u/abc123';  Пока ссылки нет, кнопки MAX скрыты и заказ принимается по телефону.
+var MAX_URL = window.RT_MAX_URL || '';
+
+var PHONE = '+79874210788', PHONE_H = '8 987 421-07-88';
+var OPEN = 10, CLOSE = 21;          // часы работы (по Москве)
+var FREE_FROM = 1000;               // бесплатная доставка от этой суммы
+var PICKUP_OFF = 10;                // скидка за самовывоз, %
+var ADDRESS = 'пгт. Джалиль, ул. Ахмадиева, 6';
+var ICONS = {'sets':'🍱','mini-sets':'🥢','baked':'🔥','tempura':'🍤','cold':'🍣','mini-rolls':'🍙','pizza':'🍕','burgers':'🛸','snacks':'🍟','sauces':'🥣'};
+
+/* ====== МЕНЮ: [код, название, вес/кол-во, состав, цена, (фото, если отличается от кода)] ====== */
 var MENU = [
  {id:'sets', t:'Сеты', items:[
-  ['p3_01','Сет Большая Компания','56 шт.','Идзуми, Двойной краб, Запечённый сырный с грибами шитаке, Бекон спайси, Европейский, Калифорния в кунжуте, Фьюжн',2500],
-  ['p5_09','Сет Супер','64 шт.','Аляска, Филадельфия, Канада с сыром, Калифорния с крабом, Запечённая калифорния, Запечённый сырный с мидиями, Запечённый острый с шитаке, Запечённый острый с крабом',2650],
+  ['p3_01','Сет Большая Компания','56 шт.','Идзуми, Двойной краб, Запечённый сырный с грибами шитаке, Бекон спайси, Европейский, Калифорния в кунжуте, Фьюжн',2500,'hq_p3_01'],
+  ['p5_09','Сет Супер','64 шт.','Аляска, Филадельфия, Канада с сыром, Калифорния с крабом, Запечённая калифорния, Запечённый сырный с мидиями, Запечённый острый с шитаке, Запечённый острый с крабом',2650,'hq_p5_09'],
   ['p5_04','Сет Люкс','48 шт.','Филадельфия люкс, Аляска, Фьюжн, Канада с лососем, Запечённый сливочный краб, Запечённый двойной краб',2620],
   ['p5_06','Сет Токио','48 шт.','Калифорния в темпуре, Запечённый сырный с мидиями, Запечённый острый с крабом, Фьюжн, Калифорния с крабом, Сливочный лосось',2300],
   ['p4_08','Сет большой запечённый','48 шт.','Запечённая филадельфия, Запечённая калифорния, Запечённый сырный с грибами шитаке, Запечённый острый с крабом, Запечённый острый с мидиями, Дабл хит',2200],
@@ -284,7 +444,7 @@ var MENU = [
   ['p4_03','Сет запечённый','16 шт.','Запечённая калифорния, Запечённый сырный с лососем',750]
  ]},
  {id:'mini-sets', t:'Мини-сеты', items:[
-  ['p6_00','Мини сет №1','12 шт.','Филадельфия, суши с лососем, гункан с лососем острый',800],
+  ['p6_00','Мини сет №1','12 шт.','Филадельфия, суши с лососем, гункан с лососем острый',800,'hq_p6_00'],
   ['p6_01','Мини сет №2','24 шт.','Мини ролл с крабом, мини ролл с огурчиком, Сливочный лосось',700],
   ['p6_02','Мини сет №3','17 шт.','Запечённый сырный с лососем, Калифорния с крабом, гункан с крабом острый',830],
   ['p6_03','Мини сет №4','17 шт.','Запечённая калифорния, Сливочный лосось, гункан с крабом острый',850],
@@ -292,7 +452,7 @@ var MENU = [
   ['p6_05','Мини сет №6','12 шт.','Дуэт, суши с лососем, суши с угрём',760]
  ]},
  {id:'baked', t:'Запечённые роллы', items:[
-  ['p6_06','Большой двойной','10 шт.','Лосось, сыр сливочный, огурчик, соус Яки, соус Унаги, кунжут',500],
+  ['p6_06','Большой двойной','10 шт.','Лосось, сыр сливочный, огурчик, соус Яки, соус Унаги, кунжут',500,'hq_p6_06'],
   ['p6_07','Дабл хит','8 шт.','Лосось, сливочный сыр, огурчик, соус Унаги, кунжут',380],
   ['p6_08','Дабл сырный','8 шт.','Лосось, огурчик, сырная шапочка (Гауда), зелёный лучок, соус Унаги, кунжут',400],
   ['p6_09','Запечённая калифорния с крабом','8 шт.','Снежный краб, огурчик, икра масаго, соус Яки, соус Унаги, кунжут',430],
@@ -321,13 +481,13 @@ var MENU = [
   ['p8_10','Легенда','8 шт.','Снежный краб, курочка, сыр сливочный, шапочка (соус Спайси), соус Унаги, кунжут',400]
  ]},
  {id:'tempura', t:'Жареные роллы', items:[
-  ['p9_00','Камчатский в темпуре','8 шт.','Креветка тигровая, сыр сливочный, икра масаго, кляр, панировочные сухари',500],
-  ['p9_01','Фирменный в темпуре','8 шт.','Лосось, сыр сливочный, огурчик, икра масаго, кляр, панировочные сухари',560],
-  ['p9_02','Гурмэ темпура','8 шт.','Лосось, сыр Гауда, кляр, панировочные сухари',560],
-  ['p9_03','Калифорния в темпуре','8 шт.','Снежный краб, огурчик, икра масаго, кляр, панировочные сухари',480]
+  ['p9_00','Камчатский в темпуре','8 шт.','Креветка тигровая, сыр сливочный, икра масаго, кляр, панировочные сухари',500,'hq_p9_00'],
+  ['p9_01','Фирменный в темпуре','8 шт.','Лосось, сыр сливочный, огурчик, икра масаго, кляр, панировочные сухари',560,'hq_p9_01'],
+  ['p9_02','Гурмэ темпура','8 шт.','Лосось, сыр Гауда, кляр, панировочные сухари',560,'hq_p9_02'],
+  ['p9_03','Калифорния в темпуре','8 шт.','Снежный краб, огурчик, икра масаго, кляр, панировочные сухари',480,'hq_p9_03']
  ]},
  {id:'cold', t:'Холодные роллы', items:[
-  ['p10_08','Филадельфия лайт','8 шт.','Лосось, сыр сливочный, огурчик',500],
+  ['p10_08','Филадельфия лайт','8 шт.','Лосось, сыр сливочный, огурчик',500,'hq_p10_08'],
   ['p10_09','Филадельфия люкс','8 шт.','Лосось, сыр сливочный, авокадо, икра масаго',650],
   ['p9_04','Филадельфия с копчёным лососем','8 шт.','Лосось копчёный, сыр сливочный, огурчик',500],
   ['p10_10','Филадельфия грин','8 шт.','Сыр Филадельфия, огурчик, укроп',320],
@@ -349,7 +509,7 @@ var MENU = [
   ['p10_06','Калифорния в кунжуте','8 шт.','Снежный краб, огурчик, соус Яки, кунжут',400]
  ]},
  {id:'mini-rolls', t:'Мини-роллы', items:[
-  ['p11_04','Мини ролл с огурчиком','8 шт.','Рис, нори, свежий огурец',170],
+  ['p11_04','Мини ролл с огурчиком','8 шт.','Рис, нори, свежий огурец',170,'hq_p11_04'],
   ['p11_00','Мини ролл с авокадо','8 шт.','Рис, нори, авокадо',200],
   ['p11_02','Мини ролл с крабом','8 шт.','Рис, нори, снежный краб',200],
   ['p11_06','Мини ролл с сыром','8 шт.','Сыр сливочный, икра масаго',200],
@@ -361,86 +521,256 @@ var MENU = [
   ['p11_09','Мини ролл с угрём','8 шт.','Рис, нори, угорь',330]
  ]},
  {id:'pizza', t:'Пицца', items:[
-  ['p2_00','Пепперони','32 см · 500 г','Колбаса пепперони, сыр моцарелла, соус фирменный',550],
-  ['p2_01','С ветчиной и грибами','32 см · 500 г','Ветчина, шампиньоны, сыр моцарелла, соус фирменный',550],
-  ['p2_02','Цезарь','32 см · 500 г','Курочка, помидорки, брокколи, сыр моцарелла, соус фирменный цезарь',600],
-  ['p2_03','Четыре сыра','32 см · 500 г','Сыр моцарелла, сыр Чеддер, сыр Гауда, сыр Дор Блю, соус белый фирменный',650],
-  ['p2_04','С морепродуктами','32 см · 500 г','Лосось, мидии, сыр моцарелла, соус белый фирменный',650],
-  ['p2_05','Маргарита','32 см · 500 г','Сыр моцарелла, помидорки, соус фирменный',400],
-  ['p2_06','Деревенская','32 см · 500 г','Бекон, ветчина, пепперони, красный лучок, сыр моцарелла, соус красный фирменный',600]
+  ['p2_00','Пепперони','32 см · 500 г','Колбаса пепперони, сыр моцарелла, соус фирменный',550,'hq_p2_00'],
+  ['p2_01','С ветчиной и грибами','32 см · 500 г','Ветчина, шампиньоны, сыр моцарелла, соус фирменный',550,'hq_p2_01'],
+  ['p2_02','Цезарь','32 см · 500 г','Курочка, помидорки, брокколи, сыр моцарелла, соус фирменный цезарь',600,'hq_p2_02'],
+  ['p2_03','Четыре сыра','32 см · 500 г','Сыр моцарелла, сыр Чеддер, сыр Гауда, сыр Дор Блю, соус белый фирменный',650,'hq_p2_03'],
+  ['p2_04','С морепродуктами','32 см · 500 г','Лосось, мидии, сыр моцарелла, соус белый фирменный',650,'hq_p2_04'],
+  ['p2_05','Маргарита','32 см · 500 г','Сыр моцарелла, помидорки, соус фирменный',400,'hq_p2_05'],
+  ['p2_06','Деревенская','32 см · 500 г','Бекон, ветчина, пепперони, красный лучок, сыр моцарелла, соус красный фирменный',600,'hq_p2_06']
+ ]},
+ {id:'burgers', t:'Бургеры', bento:true, items:[
+  ['b_ufo','НЛО Бургер','Новинка','Вкуснейшая булочка, говяжья котлета, помидор, солёные огурчики, сыр чеддер, лучок, фирменный соус',250],
+  ['b_caesar','Мини-бургер Цезарь','Мини','Курочка, пекинская капуста, помидор, сыр пармезан, фирменный соус',150],
+  ['b_hamcheese','Мини-бургер Сыр и ветчина','Мини','Сыр Гауда, ветчина куриная, помидор, фирменный соус',150],
+  ['b_spicy','Мини-бургер Спайси','Мини','Курочка, пекинская капуста, лук зелёный, помидоры, фирменный соус',150],
+  ['b_banana','Мини-бургер Сладкий шоколадный банан','Мини','Банан, шоколадная паста',120]
  ]},
  {id:'snacks', t:'Закуски', items:[
-  ['s_fries','Картошка фри','150 г','Хрустящий картофель фри',200],
+  ['s_fries','Картошка фри','150 г','Хрустящий картофель фри',200,'hq_s_fries'],
   ['s_nuggets','Наггетсы','6 шт.','Куриные наггетсы',150],
-  ['s_rings','Луковые кольца','150 г','Луковые кольца в кляре',150],
-  ['s_sticks','Сырные палочки','6 шт.','Сыр в хрустящей панировке',190],
-  ['s_shrimp','Креветки в кляре','6 шт.','Тигровые креветки в темпуре',500],
-  ['s_wings','Крылышки','6 шт.','Куриные крылышки. Соус барбекю в подарок',450]
+  ['s_rings','Луковые кольца','150 г','Луковые кольца в кляре',150,'hq_s_rings'],
+  ['s_sticks','Сырные палочки','6 шт.','Сыр в хрустящей панировке',190,'hq_s_sticks'],
+  ['s_shrimp','Креветки в кляре','6 шт.','Тигровые креветки в темпуре',500,'hq_s_shrimp'],
+  ['s_wings','Крылышки','6 шт.','Куриные крылышки. Соус барбекю в подарок',450,'hq_s_wings']
  ]},
  {id:'sauces', t:'Соусы', note:'Соусы, имбирь и васаби к роллам уже входят в комплект. Здесь — дополнительная порция.', items:[
-  ['sauce_spicy','Соус Спайси','порция','Острый сливочный соус с икрой масаго',30],
-  ['sauce_cheese','Соус Сырный','порция','Нежный сырный соус',30],
-  ['sauce_garlic','Соус Чесночный','порция','Сливочно-чесночный соус',30],
-  ['sauce_tomato','Соус Томатный','порция','Классический томатный соус',30],
-  ['sauce_bbq','Соус Барбекю','порция','Пряный копчёный соус',30],
-  ['wasabi','Васаби','порция','Японская острая приправа к роллам',30],
-  ['ginger','Имбирь','порция','Маринованный розовый имбирь',30]
+  ['sauce_spicy','Соус Спайси','порция','Острый сливочный соус с икрой масаго',30,'sc_spicy'],
+  ['sauce_cheese','Соус Сырный','порция','Нежный сырный соус',30,'sc_cheese'],
+  ['sauce_garlic','Соус Чесночный','порция','Сливочно-чесночный соус',30,'sc_garlic'],
+  ['sauce_tomato','Соус Томатный','порция','Классический томатный соус',30,'sc_tomato'],
+  ['sauce_bbq','Соус Барбекю','порция','Пряный копчёный соус',30,'sc_bbq'],
+  ['wasabi','Васаби','порция','Японская острая приправа к роллам',30,'sc_wasabi'],
+  ['ginger','Имбирь','порция','Маринованный розовый имбирь',30,'sc_ginger']
  ]}
 ];
 
 
 /* ====== ДАЛЬШЕ — ЛОГИКА, МЕНЯТЬ НЕ НУЖНО ====== */
 var $ = function(s,r){return (r||document).querySelector(s)}, $$ = function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
-var P = {};
-MENU.forEach(function(c){c.items.forEach(function(it,i){var id=c.id+'-'+i;P[id]={id:id,img:IMG+it[0]+'.webp',cover:c.id==='sauces',name:it[1],w:it[2],desc:it[3],price:it[4],cat:c.t};});});
+var APP = document.getElementById('rt-app');
+var P = {}, ORDER = [];
+MENU.forEach(function(c){c.items.forEach(function(it){
+  P[it[0]]={id:it[0],img:IMG+(it[5]||it[0])+'.webp',cover:c.id==='sauces'||c.id==='burgers',name:it[1],w:it[2],desc:it[3],price:it[4],cat:c.t,isNew:it[2]==='Новинка'};
+  ORDER.push(it[0]);
+});});
+var fmt = function(n){return n.toLocaleString('ru-RU')+' ₽'};
 var rub = function(n){return n.toLocaleString('ru-RU')+' <small>₽</small>'};
 var esc = function(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
 var phoneSvg = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>';
 
-/* шапка: логотип, фото коллажа, статус «открыто/закрыто» по московскому времени */
-$('#rt-logo').src = IMG+'logo-round.webp';
+/* хранилище (корзина и контакты переживают перезагрузку страницы) */
+var store = {get:function(k,d){try{var v=localStorage.getItem('rt_'+k);return v?JSON.parse(v):d}catch(e){return d}},
+             set:function(k,v){try{localStorage.setItem('rt_'+k,JSON.stringify(v))}catch(e){}}};
+var cart = store.get('cart',{}), form = store.get('form',{mode:'delivery',name:'',phone:'',addr:'',note:''});
+Object.keys(cart).forEach(function(id){ if(!P[id]||!(cart[id]>0)) delete cart[id]; });
+
+/* фото, ссылки MAX, статус «открыто/закрыто» по московскому времени */
 $$('[data-src]').forEach(function(im){ im.src = IMG+im.getAttribute('data-src'); });
-var now = new Date(), h = (now.getUTCHours()+3)%24, open = h>=OPEN && h<CLOSE, st = $('#rt-status');
-st.classList.toggle('closed',!open);
-st.lastElementChild.textContent = open ? 'Открыто до 21:00' : 'Закрыто · откроемся в 10:00';
+$$('[data-max]').forEach(function(a){ if(MAX_URL) a.href = MAX_URL; else a.style.display='none'; });
+var now = new Date(), h = (now.getUTCHours()+3)%24, isOpen = h>=OPEN && h<CLOSE, st = $('#rt-status');
+st.classList.toggle('closed',!isOpen);
+st.lastElementChild.textContent = isOpen ? 'Открыто до 21:00' : 'Закрыто · откроемся в 10:00';
 
-$('#rt-run').innerHTML = (function(){ var s=MENU.map(function(c){return c.t.toUpperCase()}).join('<span>✦</span>')+'<span>✦</span>ДОСТАВКА ОТ 1000 ₽ БЕСПЛАТНО<span>✦</span>'; return s+s+s+s; })();
+$('#rt-run').innerHTML = (function(){ var s=MENU.map(function(c){return c.t.toUpperCase()}).join('<span>✦</span>')+'<span>✦</span>ДОСТАВКА ОТ 1000 ₽ БЕСПЛАТНО<span>✦</span>САМОВЫВОЗ −10%<span>✦</span>'; return s+s+s+s; })();
 
-function card(p){
-  return '<article class="rt-card rt-rv" data-open="'+p.id+'" tabindex="0" role="button" aria-label="'+esc(p.name)+'">'+
-    '<div class="rt-pic'+(p.cover?' cover':'')+'"><span class="rt-tag">'+esc(p.w)+'</span><img loading="lazy" src="'+p.img+'" alt="'+esc(p.name)+'"></div>'+
-    '<div class="rt-body"><div class="rt-name">'+esc(p.name)+'</div><div class="rt-desc">'+esc(p.desc)+'</div>'+
-    '<div class="rt-foot-c"><span class="rt-price">'+rub(p.price)+'</span><span class="rt-more" aria-hidden="true">→</span></div></div></article>';
+/* карточки */
+function ctl(id){
+  var q=cart[id]||0, p=P[id];
+  return q ? '<span class="rt-qty"><button data-dec="'+id+'" aria-label="Убрать одну: '+esc(p.name)+'">−</button><b>'+q+'</b><button data-inc="'+id+'" aria-label="Добавить ещё: '+esc(p.name)+'">+</button></span>'
+           : '<button class="rt-add" data-inc="'+id+'" aria-label="Добавить в корзину: '+esc(p.name)+'">+</button>';
 }
-function plural(n){ var a=n%10,b=n%100; return n+' '+(a==1&&b!=11?'позиция':(a>=2&&a<=4&&(b<12||b>14)?'позиции':'позиций')); }
+function card(p,big){
+  return '<article class="rt-card'+(big?' big':'')+'" data-open="'+p.id+'" tabindex="0" aria-label="'+esc(p.name)+'">'+
+    '<div class="rt-pic'+(p.cover||big?' cover':'')+'"><span class="rt-tag'+(p.isNew?' new':'')+'">'+esc(p.w)+'</span><img loading="lazy" src="'+p.img+'" alt="'+esc(p.name)+'"></div>'+
+    '<div class="rt-body"><div class="rt-name">'+esc(p.name)+'</div><div class="rt-desc">'+esc(p.desc)+'</div>'+
+    '<div class="rt-foot-c"><span class="rt-price">'+rub(p.price)+'</span><span data-ctl="'+p.id+'">'+ctl(p.id)+'</span></div></div></article>';
+}
+function bento(c){ return c.items.length>=5; } // крупная первая карточка в разделах от 5 блюд
+function plural(n,f){ var a=n%10,b=n%100; return n+' '+(a==1&&b!=11?f[0]:(a>=2&&a<=4&&(b<12||b>14)?f[1]:f[2])); }
+var POS=['позиция','позиции','позиций'];
 $('#rt-nav').innerHTML = MENU.map(function(c){return '<button data-cat="'+c.id+'"><i>'+ICONS[c.id]+'</i>'+c.t+'</button>'}).join('');
+$('#rt-ft-cats').innerHTML = MENU.map(function(c){return '<button data-cat="'+c.id+'">'+c.t+'</button>'}).join('');
 $('#rt-menu').innerHTML = MENU.map(function(c){
-  return '<section class="rt-sec" id="cat-'+c.id+'"><div class="rt-sh"><i>'+ICONS[c.id]+'</i><h2>'+c.t+'</h2><small>'+plural(c.items.length)+'</small></div>'+
+  return '<section class="rt-sec" id="cat-'+c.id+'"><div class="rt-sh"><i>'+ICONS[c.id]+'</i><h2>'+c.t+'</h2><small>'+plural(c.items.length,POS)+'</small></div>'+
     (c.note?'<div class="rt-note">'+c.note+'</div>':'')+
-    '<div class="rt-grid">'+c.items.map(function(it,i){return card(P[c.id+'-'+i])}).join('')+'</div></section>';
+    '<div class="rt-grid'+(bento(c)?' bento':'')+'">'+c.items.map(function(it,i){return card(P[it[0]],bento(c)&&i===0)}).join('')+'</div></section>';
 }).join('');
 
-/* окно блюда */
-function hide(){ $('#rt-prod').classList.remove('show'); $('#rt-ov').classList.remove('show'); document.body.style.overflow=''; }
-function openProduct(id){
-  var p=P[id];
-  $('#rt-prod').innerHTML = '<button class="rt-x" data-close aria-label="Закрыть">×</button><div class="rt-pm"><div class="rt-pic'+(p.cover?' cover':'')+'"><img src="'+p.img+'" alt="'+esc(p.name)+'"></div>'+
-    '<div class="rt-pm-b"><span class="rt-cat">'+esc(p.cat)+'</span><h3>'+esc(p.name)+'</h3><span class="rt-w">'+esc(p.w)+'</span><p>'+(esc(p.desc)||'&nbsp;')+'</p>'+
-    '<div class="rt-price">'+rub(p.price)+'</div><a class="rt-btn red" href="tel:+79874210788">'+phoneSvg+'Заказать по телефону</a></div></div>';
-  $('#rt-ov').classList.add('show'); $('#rt-prod').classList.add('show'); document.body.style.overflow='hidden';
+/* корзина: расчёты */
+function lines(){ return ORDER.filter(function(id){return cart[id]>0}).map(function(id){return {p:P[id],q:cart[id]}}); }
+function calc(){
+  var L=lines(), sub=0, n=0;
+  L.forEach(function(l){sub+=l.p.price*l.q; n+=l.q;});
+  var off = form.mode==='pickup' ? Math.round(sub*PICKUP_OFF/100) : 0;
+  return {L:L, n:n, sub:sub, off:off, total:sub-off};
+}
+function save(){ store.set('cart',cart); store.set('form',form); }
+
+function setQty(id,q){
+  if(q>0) cart[id]=q; else delete cart[id];
+  save();
+  $$('[data-ctl="'+id+'"]').forEach(function(el){el.innerHTML=ctl(id)});
+  var mq=$('#rt-prod [data-mctl]'); if(mq&&mq.getAttribute('data-mctl')===id) mq.outerHTML=modalBtn(id);
+  renderBar(true);
+  if($('#rt-drawer').classList.contains('show')) renderDrawer();
+}
+function renderBar(bump){
+  var c=calc(), bar=$('#rt-bar');
+  $('#rt-bar-c').textContent=c.n; $('#rt-bar-s').textContent=fmt(c.total);
+  bar.classList.toggle('show',c.n>0 && !$('#rt-drawer').classList.contains('show'));
+  APP.classList.toggle('has-cart',c.n>0);
+  if(bump){ var b=$('#rt-bar-n'); b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump'); }
 }
 
+/* окно блюда */
+function modalBtn(id){
+  var p=P[id], q=cart[id]||0;
+  return q ? '<div data-mctl="'+id+'" style="display:flex;gap:10px;align-items:center"><span class="rt-qty" style="height:54px;border-radius:16px"><button data-dec="'+id+'" style="width:48px;height:54px" aria-label="Убрать одну">−</button><b>'+q+'</b><button data-inc="'+id+'" style="width:48px;height:54px" aria-label="Добавить ещё">+</button></span><button class="rt-btn red" data-cart style="flex:1">В корзине · '+fmt(p.price*q)+'</button></div>'
+           : '<button class="rt-btn red" data-mctl="'+id+'" data-inc="'+id+'">Добавить за '+fmt(p.price)+'</button>';
+}
+var lastFocus=null;
+function openProduct(id){
+  var p=P[id]; lastFocus=document.activeElement;
+  $('#rt-prod').innerHTML = '<button class="rt-x" data-close aria-label="Закрыть">×</button><div class="rt-pm"><div class="rt-pic'+(p.cover?' cover':'')+'"><img src="'+p.img+'" alt="'+esc(p.name)+'"></div>'+
+    '<div class="rt-pm-b"><span class="rt-cat">'+esc(p.cat)+'</span><h3>'+esc(p.name)+'</h3><span class="rt-w">'+esc(p.w)+'</span><p>'+(esc(p.desc)||'&nbsp;')+'</p>'+
+    '<div class="rt-price">'+rub(p.price)+'</div>'+modalBtn(id)+'</div></div>';
+  $('#rt-ov').classList.add('show'); $('#rt-prod').classList.add('show'); document.body.style.overflow='hidden';
+  setTimeout(function(){ var b=$('#rt-prod .rt-x'); b&&b.focus(); },50);
+}
+
+/* корзина: окно оформления */
+function field(key,label,type,ph,ac,err){
+  var tag = type==='textarea' ? '<textarea data-f="'+key+'" placeholder="'+ph+'">'+esc(form[key]||'')+'</textarea>'
+        : '<input data-f="'+key+'" type="'+type+'" placeholder="'+ph+'" autocomplete="'+ac+'" value="'+esc(form[key]||'')+'">';
+  return '<label class="rt-f" data-fw="'+key+'"><span>'+label+'</span>'+tag+(err?'<em>'+err+'</em>':'')+'</label>';
+}
+function renderDrawer(){
+  var c=calc(), d=$('#rt-drawer'), pick=form.mode==='pickup';
+  var head='<div class="rt-dh"><h3>Ваш заказ</h3><button class="rt-x" data-close aria-label="Закрыть корзину">×</button></div>';
+  if(!c.n){
+    d.innerHTML=head+'<div class="rt-db"><div class="rt-empty"><b>В корзине пока пусто</b>Добавляйте блюда кнопкой «+» на карточках.<br><button class="rt-btn red" data-cat="sets">Перейти к меню</button></div></div>';
+    return;
+  }
+  var items=c.L.map(function(l){
+    return '<div class="rt-ci"><img src="'+l.p.img+'" alt=""><div><b>'+esc(l.p.name)+'</b><small>'+fmt(l.p.price)+(l.q>1?' × '+l.q:'')+'</small></div>'+
+      '<span class="rt-qty"><button data-dec="'+l.p.id+'" aria-label="Убрать одну: '+esc(l.p.name)+'">−</button><b>'+l.q+'</b><button data-inc="'+l.p.id+'" aria-label="Добавить ещё: '+esc(l.p.name)+'">+</button></span></div>';
+  }).join('');
+  var deliv = pick ? '' : (c.sub>=FREE_FROM ? '<div class="rt-row"><span>Доставка</span><span>бесплатно</span></div>'
+      : '<div class="rt-row"><span>Доставка</span><span>уточнит оператор</span></div>');
+  var hint = (!pick && c.sub<FREE_FROM) ? '<div class="rt-hint">Добавьте ещё на '+fmt(FREE_FROM-c.sub)+' — и доставка будет бесплатной.</div>' : '';
+  var sendBtns = (MAX_URL ? '<a class="rt-btn max" data-send href="'+esc(MAX_URL)+'" target="_blank" rel="noopener">Отправить заказ в MAX</a>' : '')+
+    '<a class="rt-btn '+(MAX_URL?'line':'red')+'" data-call href="tel:'+PHONE+'">'+phoneSvg+'Позвонить '+PHONE_H+'</a>';
+  d.innerHTML = head+
+    '<div class="rt-db">'+items+'<button class="rt-clear" data-clear>Очистить корзину</button>'+
+      '<div class="rt-seg" role="group" aria-label="Способ получения">'+
+        '<button data-mode="delivery" class="'+(pick?'':'on')+'" aria-pressed="'+!pick+'">Доставка<small>бесплатно от 1000 ₽</small></button>'+
+        '<button data-mode="pickup" class="'+(pick?'on':'')+'" aria-pressed="'+pick+'">Самовывоз<small>скидка 10%</small></button>'+
+      '</div>'+
+      (pick ? '<div class="rt-pickup">Заберите заказ по адресу <b>'+ADDRESS+'</b>. Ежедневно с 10:00 до 21:00.</div>' : field('addr','Адрес доставки','text','Улица, дом, квартира','street-address','Укажите адрес, куда привезти заказ'))+
+      field('phone','Телефон','tel','+7 900 000-00-00','tel','Укажите телефон, чтобы мы подтвердили заказ')+
+      field('name','Имя','text','Как к вам обращаться','given-name')+
+      field('note','Комментарий','textarea','Например: позвоните за 10 минут','')+
+      (isOpen?'':'<div class="rt-pay">Сейчас мы закрыты. Заказ можно отправить — подтвердим его после 10:00.</div>')+
+    '</div>'+
+    '<div class="rt-df">'+
+      '<div class="rt-row"><span>Блюда, '+plural(c.n,['позиция','позиции','позиций'])+'</span><span>'+fmt(c.sub)+'</span></div>'+
+      (c.off?'<div class="rt-row off"><span>Скидка за самовывоз −10%</span><span>−'+fmt(c.off)+'</span></div>':'')+
+      deliv+
+      '<div class="rt-row tot"><span>Итого</span><b>'+fmt(c.total)+'</b></div>'+hint+
+      '<div class="rt-pay">Оплата при получении. На сайте оплатить нельзя — оператор подтвердит заказ и сумму.</div>'+
+      sendBtns+
+      '<button class="rt-copy" data-copy>Скопировать текст заказа</button>'+
+    '</div>';
+}
+function openCart(){
+  lastFocus=document.activeElement;
+  renderDrawer();
+  $('#rt-prod').classList.remove('show');
+  $('#rt-ov').classList.add('show'); $('#rt-drawer').classList.add('show'); document.body.style.overflow='hidden';
+  renderBar();
+  setTimeout(function(){ var b=$('#rt-drawer .rt-x'); b&&b.focus(); },50);
+}
+function hide(){
+  $('#rt-prod').classList.remove('show'); $('#rt-drawer').classList.remove('show'); $('#rt-ov').classList.remove('show');
+  document.body.style.overflow=''; renderBar();
+  if(lastFocus&&lastFocus.focus&&document.contains(lastFocus)) lastFocus.focus();
+}
+
+/* текст заказа */
+function orderText(){
+  var c=calc(), pick=form.mode==='pickup', t=['Заказ с сайта «Рис и Тесто»',''];
+  c.L.forEach(function(l,i){ t.push((i+1)+'. '+l.p.name+' × '+l.q+' — '+fmt(l.p.price*l.q)); });
+  t.push('');
+  t.push('Сумма: '+fmt(c.sub));
+  if(c.off) t.push('Скидка за самовывоз 10%: −'+fmt(c.off));
+  t.push('Итого: '+fmt(c.total)+(!pick&&c.sub<FREE_FROM?' + доставка':''));
+  t.push('');
+  t.push(pick ? 'Получение: самовывоз ('+ADDRESS+')' : 'Доставка: '+(form.addr||'').trim());
+  t.push('Телефон: '+(form.phone||'').trim());
+  if((form.name||'').trim()) t.push('Имя: '+form.name.trim());
+  if((form.note||'').trim()) t.push('Комментарий: '+form.note.trim());
+  t.push('Оплата при получении');
+  return t.join('\n');
+}
+function validate(){
+  var ok=true, need=['phone'];
+  if(form.mode!=='pickup') need.unshift('addr');
+  need.forEach(function(k){
+    var v=(form[k]||'').trim(), bad = k==='phone' ? v.replace(/\D/g,'').length<10 : v.length<3;
+    var w=$('[data-fw="'+k+'"]'); if(w) w.classList.toggle('err',bad);
+    if(bad&&ok){ ok=false; var i=w&&w.querySelector('input'); i&&i.focus(); }
+  });
+  return ok;
+}
+function copyText(t){
+  var ok=false;
+  try{ var ta=document.createElement('textarea'); ta.value=t; ta.setAttribute('readonly',''); ta.style.cssText='position:fixed;top:0;left:0;opacity:0';
+       document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0,t.length); ok=document.execCommand('copy'); document.body.removeChild(ta); }catch(e){}
+  try{ if(navigator.clipboard&&window.isSecureContext){ navigator.clipboard.writeText(t).catch(function(){}); ok=true; } }catch(e){}
+  return ok;
+}
+var tt;
+function toast(msg,ms){ var el=$('#rt-toast'); el.textContent=msg; el.classList.add('show'); clearTimeout(tt); tt=setTimeout(function(){el.classList.remove('show')},ms||3500); }
+
 /* события */
-document.getElementById('rt-app').addEventListener('click',function(e){
-  var t=e.target.closest('[data-close],[data-cat],[data-open],#rt-ov'); if(!t) return;
+APP.addEventListener('click',function(e){
+  var t=e.target.closest('[data-close],[data-cat],[data-inc],[data-dec],[data-open],[data-cart],[data-mode],[data-send],[data-copy],[data-clear],#rt-ov'); if(!t) return;
   var id;
   if(t.hasAttribute('data-close')||t.id=='rt-ov') return hide();
-  if((id=t.getAttribute('data-cat'))){ e.preventDefault(); return goCat(id); }
+  if((id=t.getAttribute('data-inc'))){ e.stopPropagation(); var was=cart[id]||0; setQty(id,was+1); if(!was) toast('Добавили: '+P[id].name,1800); return; }
+  if((id=t.getAttribute('data-dec'))){ e.stopPropagation(); return setQty(id,(cart[id]||0)-1); }
+  if((id=t.getAttribute('data-cat'))){ e.preventDefault(); if($('#rt-drawer').classList.contains('show')) hide(); return goCat(id); }
+  if(t.hasAttribute('data-cart')) return openCart();
+  if((id=t.getAttribute('data-mode'))){ form.mode=id; save(); renderDrawer(); renderBar(); return; }
+  if(t.hasAttribute('data-clear')){ cart={}; save(); ORDER.forEach(function(i){ $$('[data-ctl="'+i+'"]').forEach(function(el){el.innerHTML=ctl(i)}) }); renderDrawer(); renderBar(); return; }
+  if(t.hasAttribute('data-copy')){ if(!validate()) return; toast(copyText(orderText())?'Текст заказа скопирован':'Не получилось скопировать — позвоните нам: '+PHONE_H); return; }
+  if(t.hasAttribute('data-send')){
+    if(!validate()){ e.preventDefault(); return; }
+    copyText(orderText());
+    toast('Заказ скопирован. В открывшемся чате MAX вставьте его и отправьте',6000);
+    return; // ссылка откроет чат MAX в новой вкладке
+  }
   if((id=t.getAttribute('data-open'))) return openProduct(id);
+});
+APP.addEventListener('input',function(e){
+  var k=e.target.getAttribute&&e.target.getAttribute('data-f'); if(!k) return;
+  form[k]=e.target.value; save();
+  var w=e.target.closest('.rt-f'); if(w&&w.classList.contains('err')) w.classList.remove('err');
 });
 document.addEventListener('keydown',function(e){
   if(e.key==='Escape') hide();
-  if(e.key==='Enter' && e.target.getAttribute && e.target.getAttribute('data-open')) openProduct(e.target.getAttribute('data-open'));
+  if((e.key==='Enter'||e.key===' ') && e.target.getAttribute && e.target.getAttribute('data-open') && (e.target.tagName==='ARTICLE'||e.target.classList.contains('rt-ph'))){ e.preventDefault(); openProduct(e.target.getAttribute('data-open')); }
 });
 
 /* категории: прокрутка, подсветка, ?category= в адресе */
@@ -463,14 +793,8 @@ function spy(){
 }
 window.addEventListener('scroll',spy,{passive:true});
 
-/* плавное появление карточек */
-if('IntersectionObserver' in window){
-  var io=new IntersectionObserver(function(es){es.forEach(function(en){ if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);} })},{rootMargin:'0px 0px -40px 0px'});
-  $$('.rt-rv').forEach(function(el){io.observe(el)});
-} else $$('.rt-rv').forEach(function(el){el.classList.add('in')});
-
 var q=(location.search.match(/category=([\w-]+)/)||[])[1]; if(q) setTimeout(function(){goCat(q,true)},50);
-spy();
+spy(); renderBar();
 })();
 </script>
 <!-- ===== Рис и Тесто: конец кода ===== -->
